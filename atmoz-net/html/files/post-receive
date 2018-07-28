@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -rf /usr/share/nginx/html/*
+/root/go/bin/ply --include-markdown . /usr/share/nginx/html
+

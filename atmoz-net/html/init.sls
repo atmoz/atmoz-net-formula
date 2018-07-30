@@ -1,15 +1,10 @@
 git-repo:
   git.latest:
       - name: https://github.com/atmoz/atmoz-net
-      - target: /root/atmoz-net
+      - target: /root/atmoz-net.git
+      - bare: True
 
-git-repo-config:
-  git.config_set:
-      - name: receive.denyCurrentBranch
-      - value: ignore
-      - repo: /root/atmoz-net
-
-/root/atmoz-net/.git/hooks/post-receive:
+/root/atmoz-net.git/hooks/post-receive:
   file.managed:
     - source: salt://atmoz-net/html/files/post-receive
     - user: root

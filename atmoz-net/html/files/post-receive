@@ -1,5 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
-rm -rf /usr/share/nginx/html/*
-/root/go/bin/ply --include-markdown . /usr/share/nginx/html
+repo=/root/atmoz-net.git
+work=/root/atmoz-net
+target=/usr/share/nginx/html
+
+rm -rf $work
+mkdir $work
+git --work-tree=$work --git-dir=$repo checkout -f
+
+rm -rf $target
+mkdir $target
+/root/go/bin/ply --include-markdown $work $target
 
